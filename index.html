@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuestionario de Redes</title>
+<style>
+  :root {
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --card-bg: #fff;
+    --border-color: #ddd;
+    --primary-color: #0056b3;
+  }
+  body.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #f4f4f9;
+    --card-bg: #2d2d2d;
+    --border-color: #444;
+    --primary-color: #4da3ff;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .container {
+    max-width: 800px;
+    margin: auto;
+  }
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+    padding: 10px 0;
+    z-index: 1000;
+  }
+  #searchInput {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+  }
+  #themeToggle {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  .question-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .question-card h3 {
+    margin-top: 0;
+  }
+  .question-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px dashed var(--border-color);
+    display: block;
+    margin-top: 15px;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Buscar pregunta por palabras clave...">
+    <button id="themeToggle">Modo Noche</button>
+  </div>
+
+  <div id="questionsContainer">
+    
+    <div class="question-card">
+      <h3>Pregunta 1 - PPP es:</h3>
+      <img src="imagenes/1.png" alt="Imagen de la pregunta 1" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'1.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 2 - Cual es la longitud minima de la trama Ethernet</h3>
+      <img src="imagenes/2.png" alt="Imagen de la pregunta 2" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'2.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 3 - Que compromete mas la performance de un switch trabajando en modo fragment free?</h3>
+      <img src="imagenes/3.png" alt="Imagen de la pregunta 3" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'3.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 4 - El protocolo MACAW difiere de MACA en incorporar ACK</h3>
+      <img src="imagenes/4.png" alt="Imagen de la pregunta 4" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'4.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 5 - Las principales funciones de la capa de red son:</h3>
+      <img src="imagenes/5.png" alt="Imagen de la pregunta 5" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'5.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 6 - Seleccione las opciones correctas para Fast Ethernet</h3>
+      <img src="imagenes/6.png" alt="Imagen de la pregunta 6" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'6.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 7 - El esándar 802.1 Implementa:</h3>
+      <img src="imagenes/7.png" alt="Imagen de la pregunta 7" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'7.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 8 - Cual es el único servivio que presta LLC</h3>
+      <img src="imagenes/8.png" alt="Imagen de la pregunta 8" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'8.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 9 - Seleccione las opciones validas para el protocolo WPA</h3>
+      <img src="imagenes/9.png" alt="Imagen de la pregunta 9" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'9.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 10 - Los números mágicos en PPP se utilizan:</h3>
+      <img src="imagenes/10.png" alt="Imagen de la pregunta 10" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'10.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 11 - El principio de optimalidad establece que:</h3>
+      <img src="imagenes/11.png" alt="Imagen de la pregunta 11" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'11.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 12 - En el enrutamiento por estado de enlace, cada ruteador debe:</h3>
+      <img src="imagenes/12.png" alt="Imagen de la pregunta 12" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'12.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 13 - Que propiedades debiera tener un algoritmo de enrutamiento</h3>
+      <img src="imagenes/13.png" alt="Imagen de la pregunta 13" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'13.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 14 - El rendimiento máximo de: Aloha Puro / Aloha Ranurado</h3>
+      <img src="imagenes/14.png" alt="Imagen de la pregunta 14" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'14.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 15 - Los protocolos MACA utilizan mensajes RTS y CTS</h3>
+      <img src="imagenes/15.png" alt="Imagen de la pregunta 15" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'15.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 16 - Las tramas ethernet II y 802.3 difieren en</h3>
+      <img src="imagenes/16.png" alt="Imagen de la pregunta 16" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'16.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 17 - LLC:</h3>
+      <img src="imagenes/17.png" alt="Imagen de la pregunta 17" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'17.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 18 - Numere las cinco fases de una conexión PPP</h3>
+      <img src="imagenes/18.png" alt="Imagen de la pregunta 18" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'18.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 19 - Las causas de la congestión pueden ser:</h3>
+      <img src="imagenes/19.png" alt="Imagen de la pregunta 19" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'19.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 20 - Una cuestión central en los canales de difusión es el problema de asignación del canal</h3>
+      <img src="imagenes/20.png" alt="Imagen de la pregunta 20" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'20.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 21 - En el estándar 802.11: PCF utiliza / PCF puede coexistir con DCF</h3>
+      <img src="imagenes/21.png" alt="Imagen de la pregunta 21" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'21.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 22 - Para protocolos que utilizan CSMA, con respecto de la latencia</h3>
+      <img src="imagenes/22.png" alt="Imagen de la pregunta 22" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'22.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 23 - Seleccione características de ruteo jerárquico</h3>
+      <img src="imagenes/23.png" alt="Imagen de la pregunta 23" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'23.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 24 - Ante una conexión redundante es preferible una perdida de conectividad temporal a que se formen bucles</h3>
+      <img src="imagenes/24.png" alt="Imagen de la pregunta 24" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'24.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 25 - Los modos de operación de un switch pueden ser:</h3>
+      <img src="imagenes/25.png" alt="Imagen de la pregunta 25" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'25.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 26 - La técnica de horizonte dividido funciona en todas las topologías</h3>
+      <img src="imagenes/26.png" alt="Imagen de la pregunta 26" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'26.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 27 - Seleccione las opciones correctas para Gigabit Ethernet</h3>
+      <img src="imagenes/27.png" alt="Imagen de la pregunta 27" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'27.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 28 - S=G.e^-G Esta expresion representa el rendimiento de Aloha ranurado</h3>
+      <img src="imagenes/28.png" alt="Imagen de la pregunta 28" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'28.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 29 - La deteccion de colisiones es un proceso analógico. Por que motivo puede ser dañino para deteccion de colisiones?</h3>
+      <img src="imagenes/29.png" alt="Imagen de la pregunta 29" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'29.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 30 - El problema de conteo a Infinito que tiene el algoritmo de vector distancia se puede mitigar con:</h3>
+      <img src="imagenes/30.png" alt="Imagen de la pregunta 30" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'30.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 31 - Seleccione algoritmos de enrutamiento estático:</h3>
+      <img src="imagenes/31.png" alt="Imagen de la pregunta 31" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'31.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 32 - Cómo se inician las sesiones PPP?</h3>
+      <img src="imagenes/32.png" alt="Imagen de la pregunta 32" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'32.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 33 - La capacidad de conmutación de un switch se mide en</h3>
+      <img src="imagenes/33.png" alt="Imagen de la pregunta 33" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'33.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 34 - ¿Cuantos campos de direcciones tiene una trama 802.11?</h3>
+      <img src="imagenes/34.png" alt="Imagen de la pregunta 34" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'34.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 35 - El estándar 802.11 define:</h3>
+      <img src="imagenes/35.png" alt="Imagen de la pregunta 35" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'35.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 36 - Los protocolos CSMA pueden ser:</h3>
+      <img src="imagenes/36.png" alt="Imagen de la pregunta 36" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'36.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 37 - El árbol de optimalidad es aquel que se forme por las rutas óptimas desde todos los orígenes a un destino dado</h3>
+      <img src="imagenes/37.png" alt="Imagen de la pregunta 37" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'37.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 38 - PPP opera en la capa de enlace</h3>
+      <img src="imagenes/38.png" alt="Imagen de la pregunta 38" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'38.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 39 - El período de vulnerabilidad de una trama en:</h3>
+      <img src="imagenes/39.png" alt="Imagen de la pregunta 39" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'39.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 40 - Indique cual de las siguientes afirmaciones son verdaderas para los bridges</h3>
+      <img src="imagenes/40.png" alt="Imagen de la pregunta 40" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'40.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 41 - En una trama ethernet Las direcciones tienen una longitud de:</h3>
+      <img src="imagenes/41.png" alt="Imagen de la pregunta 41" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'41.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 42 - Los enlaces pueden ser (marque las opciones correctas)</h3>
+      <img src="imagenes/42.png" alt="Imagen de la pregunta 42" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'42.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 43 - Complete las siguientes definiciones (Giants, Runts, Jabbering)</h3>
+      <img src="imagenes/43.png" alt="Imagen de la pregunta 43" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'43.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 44 - Que empresa desarrolló la primer version d Ethernet</h3>
+      <img src="imagenes/44.png" alt="Imagen de la pregunta 44" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'44.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 45 - ¿Cuales son los supuestos en cuanto al tiempo en que las estaciones de un canal compartido pueden transmitir?</h3>
+      <img src="imagenes/45.png" alt="Imagen de la pregunta 45" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'45.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 46 - Marque las opciones correctas para un escenario con protocolos de acceso inalambrico</h3>
+      <img src="imagenes/46.png" alt="Imagen de la pregunta 46" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'46.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 47 - S = G.e^-2G Esta expresion representa el rendimiento de Aloha puro</h3>
+      <img src="imagenes/47.png" alt="Imagen de la pregunta 47" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'47.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 48 - Cual es la longitud máxima del campo payload de la trama Ethernet</h3>
+      <img src="imagenes/48.png" alt="Imagen de la pregunta 48" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'48.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 49 - En que condiciones de la red es útil la aplicación de QoS</h3>
+      <img src="imagenes/49.png" alt="Imagen de la pregunta 49" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'49.png\')</i></p>');">
+    </div>
+    <div class="question-card">
+      <h3>Pregunta 50 - El algoritmo de vector distancia es también conocido por</h3>
+      <img src="imagenes/50.png" alt="Imagen de la pregunta 50" class="question-image" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p><i>(Guarda la imagen de esta pregunta en la carpeta \'imagenes\' con el nombre \'50.png\')</i></p>');">
+    </div>
+  </div>
+</div>
+
+<script>
+  // Theme Toggle
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+      themeToggle.textContent = 'Modo Día';
+    } else {
+      themeToggle.textContent = 'Modo Noche';
+    }
+  });
+
+  // Search Functionality
+  const searchInput = document.getElementById('searchInput');
+  const questions = document.querySelectorAll('.question-card');
+
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase();
+    questions.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      if (title.includes(query)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
